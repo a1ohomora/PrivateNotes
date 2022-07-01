@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.rozvezev.springsecurityfirstapp.models.Person;
 import ru.rozvezev.springsecurityfirstapp.repositories.PeopleRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,6 +24,10 @@ public class PeopleService {
 
     public Optional<Person> findByUsername(String username){
         return peopleRepository.findByUsername(username);
+    }
+
+    public List<Person> getAll(){
+        return peopleRepository.findAll();
     }
 
     @Transactional

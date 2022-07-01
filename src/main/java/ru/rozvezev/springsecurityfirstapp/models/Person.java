@@ -5,6 +5,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "Person")
@@ -30,6 +31,9 @@ public class Person {
 
     @Column(name = "role")
     private String role;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Note> notes;
 
     public Person() {}
 

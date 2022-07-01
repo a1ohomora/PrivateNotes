@@ -25,24 +25,28 @@
 <div class="my-header">
     <h1>Log in</h1>
 </div>
-<div class="w3-cursive w3-center my-text">
-    <form class="w3-padding-small" th:method="POST" th:action="@{/login_process}">
-        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+    <div class="w3-cursive w3-center my-text">
+        <form class="w3-padding-small" th:method="POST" th:action="@{/login_process}">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 
-        <label for="username">Username: </label>
-        <input type="text" id="username" name="username" size="20">
-        <div class="w3-padding-small"></div>
+            <label for="username">Username: </label>
+            <input type="text" id="username" name="username" size="20">
+            <div class="w3-padding-small"></div>
 
-        <label for="password">Password: </label>
-        <input type="password" id="password" name="password" size="20">
-        <div class="w3-padding-small"></div>
+            <label for="password">Password: </label>
+            <input type="password" id="password" name="password" size="20">
+            <div class="w3-padding-small"></div>
 
-        <input class="w3-button w3-light-gray" type="submit" value="log in">
+            <input class="w3-button w3-light-gray" type="submit" value="log in">
 
-        <div th:if="${param.error}" style="color:red">
-            Incorrect username or password.
-        </div>
-    </form>
-</div>
+            <div th:if="${param.error}" style="color:red">
+                Incorrect username or password.
+            </div>
+        </form>
+    </div>
 </body>
+
+<footer class="w3-right-align w3-blue-gray w3-padding-16 my-text">
+    <a class="w3-button w3-hover-orange" style="text-decoration:none" href="/auth/registration">Registration</a>
+</footer>
 </html>
