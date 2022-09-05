@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>New note</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
+    <style>
+        .my-text{
+            font-size:30px;
+        }
+    </style>
 </head>
-<body>
+<body class="w3-content w3-blue-gray" style="max-width:1300px">
 <div class="w3-cursive w3-center my-text">
     <!--/*@thymesVar id="note" type="ru.rozvezev.springsecurityfirstapp.models.Note"*/-->
     <form class="w3-padding-small" th:method="PATCH" th:action="@{/notes/{id}(id=${note.getId()})}" th:object="${note}">
@@ -13,7 +22,7 @@
         <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
         <br>
         <label for="note">Enter text: </label>
-        <textarea th:field="*{body}" id="note" rows="10" cols="50"></textarea>
+        <textarea wrap="soft" th:field="*{body}" id="note" rows="10" cols="50"></textarea>
         <div style="color:red" th:if="${#fields.hasErrors('body')}" th:errors="*{body}"></div>
         <div class="w3-padding-small"></div>
 
